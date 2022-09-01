@@ -1,0 +1,1877 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+      "title": "Inno.CorePlatform.MC.Backend",
+      "version": "1.0"
+    },
+    "paths": {
+      "/api/AppClientMgmt/appClient/index": {
+        "get": {
+          "tags": [
+            "AppClientMgmt"
+          ],
+          "parameters": [
+            {
+              "name": "quick_search",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "page",
+              "in": "query",
+              "schema": {
+                "type": "integer",
+                "format": "int32",
+                "default": 1
+              }
+            },
+            {
+              "name": "limit",
+              "in": "query",
+              "schema": {
+                "type": "integer",
+                "format": "int32",
+                "default": 10
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/AppClientListOutputResponseData"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/AppClientListOutputResponseData"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/AppClientListOutputResponseData"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/AppClientMgmt/appClient/edit": {
+        "get": {
+          "tags": [
+            "AppClientMgmt"
+          ],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/AppClientUpdateInputResponseData"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/AppClientUpdateInputResponseData"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/AppClientUpdateInputResponseData"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "post": {
+          "tags": [
+            "AppClientMgmt"
+          ],
+          "requestBody": {
+            "content": {
+              "application/json-patch+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppClientUpdateInput"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppClientUpdateInput"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppClientUpdateInput"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppClientUpdateInput"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/StringResponseData"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/StringResponseData"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/StringResponseData"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/AppClientMgmt/appClient/add": {
+        "post": {
+          "tags": [
+            "AppClientMgmt"
+          ],
+          "requestBody": {
+            "content": {
+              "application/json-patch+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppClientCreateInput"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppClientCreateInput"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppClientCreateInput"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppClientCreateInput"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/GuidResponseData"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/GuidResponseData"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/GuidResponseData"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/AppClientMgmt/appClient/del": {
+        "delete": {
+          "tags": [
+            "AppClientMgmt"
+          ],
+          "requestBody": {
+            "content": {
+              "application/json-patch+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppClientDelInput"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppClientDelInput"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppClientDelInput"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AppClientDelInput"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/StringResponseData"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/StringResponseData"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/StringResponseData"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/PermissionMgmt/index": {
+        "get": {
+          "tags": [
+            "PermissionMgmt"
+          ],
+          "parameters": [
+            {
+              "name": "quick_search",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RoleListOutputResponseData"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RoleListOutputResponseData"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RoleListOutputResponseData"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/PermissionMgmt/add": {
+        "post": {
+          "tags": [
+            "PermissionMgmt"
+          ],
+          "requestBody": {
+            "content": {
+              "application/json-patch+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RoleCreateInput"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RoleCreateInput"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RoleCreateInput"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RoleCreateInput"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/PermissionMgmt/del": {
+        "delete": {
+          "tags": [
+            "PermissionMgmt"
+          ],
+          "requestBody": {
+            "content": {
+              "application/json-patch+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RoleDeleteInput"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RoleDeleteInput"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RoleDeleteInput"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RoleDeleteInput"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/StringResponseData"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/StringResponseData"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/StringResponseData"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/PermissionMgmt/edit": {
+        "get": {
+          "tags": [
+            "PermissionMgmt"
+          ],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RoleCreateInputResponseData"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RoleCreateInputResponseData"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/RoleCreateInputResponseData"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "post": {
+          "tags": [
+            "PermissionMgmt"
+          ],
+          "requestBody": {
+            "content": {
+              "application/json-patch+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RoleUpdateInput"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RoleUpdateInput"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RoleUpdateInput"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RoleUpdateInput"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/PermissionMgmt/AssignRoleToUser": {
+        "post": {
+          "tags": [
+            "PermissionMgmt"
+          ],
+          "requestBody": {
+            "content": {
+              "application/json-patch+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AssignRoleToUserInput"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AssignRoleToUserInput"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AssignRoleToUserInput"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AssignRoleToUserInput"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/PermissionMgmt/AssignUserToRole": {
+        "post": {
+          "tags": [
+            "PermissionMgmt"
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/PermissionMgmt/GetUserListById": {
+        "get": {
+          "tags": [
+            "PermissionMgmt"
+          ],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "query",
+              "schema": {
+                "type": "string",
+                "format": "uuid"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/UserListOutputBySearch"
+                    }
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/UserListOutputBySearch"
+                    }
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/UserListOutputBySearch"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/PermissionMgmt/GetRoleListById": {
+        "get": {
+          "tags": [
+            "PermissionMgmt"
+          ],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "query",
+              "schema": {
+                "type": "string",
+                "format": "uuid"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/RoleListOutputBySearch"
+                    }
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/RoleListOutputBySearch"
+                    }
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/RoleListOutputBySearch"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/UserMgmt/Index": {
+        "get": {
+          "tags": [
+            "UserMgmt"
+          ],
+          "parameters": [
+            {
+              "name": "quick_search",
+              "in": "query",
+              "schema": {
+                "type": "string"
+              }
+            },
+            {
+              "name": "page",
+              "in": "query",
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            },
+            {
+              "name": "limit",
+              "in": "query",
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/UserListOutputResponseData"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/UserListOutputResponseData"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/UserListOutputResponseData"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/UserMgmt/Get{id}": {
+        "get": {
+          "tags": [
+            "UserMgmt"
+          ],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "query",
+              "schema": {
+                "type": "string",
+                "format": "uuid"
+              }
+            },
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/UserCreateInputResponseData"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/UserCreateInputResponseData"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/UserCreateInputResponseData"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/UserMgmt/Edit": {
+        "get": {
+          "tags": [
+            "UserMgmt"
+          ],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "query",
+              "schema": {
+                "type": "string",
+                "format": "uuid"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/UserCreateInputResponseData"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/UserCreateInputResponseData"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/UserCreateInputResponseData"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "post": {
+          "tags": [
+            "UserMgmt"
+          ],
+          "requestBody": {
+            "content": {
+              "application/json-patch+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserUpdateInput"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserUpdateInput"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserUpdateInput"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserUpdateInput"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/StringResponseData"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/StringResponseData"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/StringResponseData"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/UserMgmt/Get/name/{name}": {
+        "get": {
+          "tags": [
+            "UserMgmt"
+          ],
+          "parameters": [
+            {
+              "name": "name",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/UserCreateInput"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/UserCreateInput"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/UserCreateInput"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/UserMgmt/Add": {
+        "post": {
+          "tags": [
+            "UserMgmt"
+          ],
+          "requestBody": {
+            "content": {
+              "application/json-patch+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserCreateInput"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserCreateInput"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserCreateInput"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserCreateInput"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/GuidResponseData"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/GuidResponseData"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/GuidResponseData"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/UserMgmt/UpdateWxWorkId": {
+        "put": {
+          "tags": [
+            "UserMgmt"
+          ],
+          "requestBody": {
+            "content": {
+              "application/json-patch+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserUpdateInput"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserUpdateInput"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserUpdateInput"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserUpdateInput"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/StringResponseData"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/StringResponseData"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/StringResponseData"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/UserMgmt/SearchUsers/index": {
+        "get": {
+          "tags": [
+            "UserMgmt"
+          ],
+          "parameters": [
+            {
+              "name": "RoleId",
+              "in": "query",
+              "schema": {
+                "type": "string",
+                "format": "uuid"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "$ref": "#/components/schemas/UserListOutputBySearchResponseData"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/UserListOutputBySearchResponseData"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/UserListOutputBySearchResponseData"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "/api/Values": {
+        "get": {
+          "tags": [
+            "Values"
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "post": {
+          "tags": [
+            "Values"
+          ],
+          "requestBody": {
+            "content": {
+              "application/json-patch+json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      },
+      "/api/Values/{id}": {
+        "get": {
+          "tags": [
+            "Values"
+          ],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success",
+              "content": {
+                "text/plain": {
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "application/json": {
+                  "schema": {
+                    "type": "string"
+                  }
+                },
+                "text/json": {
+                  "schema": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "put": {
+          "tags": [
+            "Values"
+          ],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "requestBody": {
+            "content": {
+              "application/json-patch+json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "application/*+json": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        },
+        "delete": {
+          "tags": [
+            "Values"
+          ],
+          "parameters": [
+            {
+              "name": "id",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer",
+                "format": "int32"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Success"
+            }
+          }
+        }
+      }
+    },
+    "components": {
+      "schemas": {
+        "AppClientCreateInput": {
+          "type": "object",
+          "properties": {
+            "appClientId": {
+              "type": "string",
+              "nullable": true
+            },
+            "name": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "AppClientDelInput": {
+          "type": "object",
+          "properties": {
+            "ids": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "AppClientListOutput": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "appClientId": {
+              "type": "string",
+              "nullable": true
+            },
+            "name": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "AppClientListOutputData": {
+          "type": "object",
+          "properties": {
+            "total": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "list": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/AppClientListOutput"
+              },
+              "nullable": true
+            },
+            "model": {
+              "$ref": "#/components/schemas/AppClientListOutput"
+            },
+            "remark": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "AppClientListOutputResponseData": {
+          "type": "object",
+          "properties": {
+            "data": {
+              "$ref": "#/components/schemas/AppClientListOutputData"
+            },
+            "code": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "msg": {
+              "type": "string",
+              "nullable": true
+            },
+            "time": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          "additionalProperties": false
+        },
+        "AppClientUpdateInput": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "appClientId": {
+              "type": "string",
+              "nullable": true
+            },
+            "name": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "AppClientUpdateInputData": {
+          "type": "object",
+          "properties": {
+            "total": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "list": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/AppClientUpdateInput"
+              },
+              "nullable": true
+            },
+            "model": {
+              "$ref": "#/components/schemas/AppClientUpdateInput"
+            },
+            "remark": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "AppClientUpdateInputResponseData": {
+          "type": "object",
+          "properties": {
+            "data": {
+              "$ref": "#/components/schemas/AppClientUpdateInputData"
+            },
+            "code": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "msg": {
+              "type": "string",
+              "nullable": true
+            },
+            "time": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          "additionalProperties": false
+        },
+        "AssignRoleToUserInput": {
+          "type": "object",
+          "properties": {
+            "userId": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "roleIds": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uuid"
+              },
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "GuidData": {
+          "type": "object",
+          "properties": {
+            "total": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "list": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "format": "uuid"
+              },
+              "nullable": true
+            },
+            "model": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "remark": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "GuidResponseData": {
+          "type": "object",
+          "properties": {
+            "data": {
+              "$ref": "#/components/schemas/GuidData"
+            },
+            "code": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "msg": {
+              "type": "string",
+              "nullable": true
+            },
+            "time": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          "additionalProperties": false
+        },
+        "RoleCreateInput": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "name": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "RoleCreateInputData": {
+          "type": "object",
+          "properties": {
+            "total": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "list": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/RoleCreateInput"
+              },
+              "nullable": true
+            },
+            "model": {
+              "$ref": "#/components/schemas/RoleCreateInput"
+            },
+            "remark": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "RoleCreateInputResponseData": {
+          "type": "object",
+          "properties": {
+            "data": {
+              "$ref": "#/components/schemas/RoleCreateInputData"
+            },
+            "code": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "msg": {
+              "type": "string",
+              "nullable": true
+            },
+            "time": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          "additionalProperties": false
+        },
+        "RoleDeleteInput": {
+          "type": "object",
+          "properties": {
+            "ids": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "RoleListOutput": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "name": {
+              "type": "string",
+              "nullable": true
+            },
+            "status": {
+              "type": "boolean"
+            },
+            "statusName": {
+              "type": "string",
+              "nullable": true
+            },
+            "memberCount": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          "additionalProperties": false
+        },
+        "RoleListOutputBySearch": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "name": {
+              "type": "string",
+              "nullable": true
+            },
+            "status": {
+              "type": "boolean"
+            }
+          },
+          "additionalProperties": false
+        },
+        "RoleListOutputData": {
+          "type": "object",
+          "properties": {
+            "total": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "list": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/RoleListOutput"
+              },
+              "nullable": true
+            },
+            "model": {
+              "$ref": "#/components/schemas/RoleListOutput"
+            },
+            "remark": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "RoleListOutputResponseData": {
+          "type": "object",
+          "properties": {
+            "data": {
+              "$ref": "#/components/schemas/RoleListOutputData"
+            },
+            "code": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "msg": {
+              "type": "string",
+              "nullable": true
+            },
+            "time": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          "additionalProperties": false
+        },
+        "RoleUpdateInput": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "name": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "StringData": {
+          "type": "object",
+          "properties": {
+            "total": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "list": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "nullable": true
+            },
+            "model": {
+              "type": "string",
+              "nullable": true
+            },
+            "remark": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "StringResponseData": {
+          "type": "object",
+          "properties": {
+            "data": {
+              "$ref": "#/components/schemas/StringData"
+            },
+            "code": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "msg": {
+              "type": "string",
+              "nullable": true
+            },
+            "time": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          "additionalProperties": false
+        },
+        "UserCreateInput": {
+          "required": [
+            "displayName",
+            "mfaPhoneNumber",
+            "name"
+          ],
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "format": "uuid",
+              "nullable": true
+            },
+            "name": {
+              "type": "string"
+            },
+            "displayName": {
+              "type": "string"
+            },
+            "isExternal": {
+              "type": "boolean"
+            },
+            "mfaPhoneNumber": {
+              "type": "string"
+            },
+            "mfaWxWorkId": {
+              "type": "string",
+              "nullable": true
+            },
+            "wfStatus": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "wfStatusName": {
+              "type": "string",
+              "nullable": true
+            },
+            "passWord": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "UserCreateInputData": {
+          "type": "object",
+          "properties": {
+            "total": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "list": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/UserCreateInput"
+              },
+              "nullable": true
+            },
+            "model": {
+              "$ref": "#/components/schemas/UserCreateInput"
+            },
+            "remark": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "UserCreateInputResponseData": {
+          "type": "object",
+          "properties": {
+            "data": {
+              "$ref": "#/components/schemas/UserCreateInputData"
+            },
+            "code": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "msg": {
+              "type": "string",
+              "nullable": true
+            },
+            "time": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          "additionalProperties": false
+        },
+        "UserListOutput": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "name": {
+              "type": "string",
+              "nullable": true
+            },
+            "displayName": {
+              "type": "string",
+              "nullable": true
+            },
+            "isExternal": {
+              "type": "boolean"
+            },
+            "isExternalStr": {
+              "type": "string",
+              "nullable": true,
+              "readOnly": true
+            },
+            "mfaPhoneNumber": {
+              "type": "string",
+              "nullable": true
+            },
+            "mfaWxWorkId": {
+              "type": "string",
+              "nullable": true
+            },
+            "wfStatus": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "wfStatusName": {
+              "type": "string",
+              "nullable": true
+            },
+            "createTime": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          "additionalProperties": false
+        },
+        "UserListOutputBySearch": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "name": {
+              "type": "string",
+              "nullable": true
+            },
+            "displayName": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "UserListOutputBySearchData": {
+          "type": "object",
+          "properties": {
+            "total": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "list": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/UserListOutputBySearch"
+              },
+              "nullable": true
+            },
+            "model": {
+              "$ref": "#/components/schemas/UserListOutputBySearch"
+            },
+            "remark": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "UserListOutputBySearchResponseData": {
+          "type": "object",
+          "properties": {
+            "data": {
+              "$ref": "#/components/schemas/UserListOutputBySearchData"
+            },
+            "code": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "msg": {
+              "type": "string",
+              "nullable": true
+            },
+            "time": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          "additionalProperties": false
+        },
+        "UserListOutputData": {
+          "type": "object",
+          "properties": {
+            "total": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "list": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/UserListOutput"
+              },
+              "nullable": true
+            },
+            "model": {
+              "$ref": "#/components/schemas/UserListOutput"
+            },
+            "remark": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        },
+        "UserListOutputResponseData": {
+          "type": "object",
+          "properties": {
+            "data": {
+              "$ref": "#/components/schemas/UserListOutputData"
+            },
+            "code": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "msg": {
+              "type": "string",
+              "nullable": true
+            },
+            "time": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          "additionalProperties": false
+        },
+        "UserUpdateInput": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "name": {
+              "type": "string",
+              "nullable": true
+            },
+            "displayName": {
+              "type": "string",
+              "nullable": true
+            },
+            "isExternal": {
+              "type": "boolean"
+            },
+            "mfaPhoneNumber": {
+              "type": "string",
+              "nullable": true
+            },
+            "mfaWxWorkId": {
+              "type": "string",
+              "nullable": true
+            },
+            "wfStatus": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "wfStatusName": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "additionalProperties": false
+        }
+      }
+    }
+  }
